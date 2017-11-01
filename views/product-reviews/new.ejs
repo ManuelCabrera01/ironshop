@@ -1,0 +1,13 @@
+<!-- views/product-reviews/new.ejs -->
+<form action="/products/<%= product._id %>/reviews" method="POST">
+  <label for="author">Email Address</label>
+  <input type="text" name="author" id="author">
+
+  <label for="author">Stars</label>
+  <input type="number" name="stars" id="stars">
+
+  <label for="content">Content</label>
+  <textarea name="content" rows="3" cols="80"></textarea>
+
+  <button type="submit">Submit Review</button>
+</form>

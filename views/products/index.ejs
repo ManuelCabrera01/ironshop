@@ -1,0 +1,48 @@
+<!-- products/index.ejs -->
+<body>
+<ul>
+  <% products.forEach((product) => { %>
+    <li>
+      <%= product.name %> - $<%= product.price %>
+      <a href="/products/product-details?id=<%= product._id %>">View Details</a>
+    </li>
+  <%  }) %>
+</ul>
+
+<ul>
+  <% products.forEach((product) => { %>
+    <li>
+      <%= product.name %> - $<%= product.price %>
+      <a href="/products/<%= product._id %>">View Details</a>
+    </li>
+  <%  }) %>
+</ul>
+
+<ul>
+  <% products.forEach((product) => { %>
+    <li>
+      <%= product.name %> - $<%= product.price %>
+      <a href="/products/<%= product._id %>">View Details</a>
+      <a href="/products/<%= product._id %>/edit/">Edit Product</a>
+    </li>
+    <li>
+      <!-- Other HTML -->
+      <form action="/products/<%= product._id %>/delete" method="POST">
+        <button type="submit">Delete Product</button>
+      </form>
+    </li>
+  <%  }) %>
+</ul>
+<!-- other HTML -->
+
+  <form action="/products/search">
+    <label for="search-term">Search for an item by name</label>
+    <input type="text" name="searchTerm" id="search-term">
+
+    <button type="submit">Search</button>
+  </form>
+
+  <a href="/products/expensive">Most Expensive Items</a>
+  <a href="/products/cheapest">Cheapest Items</a>
+</body>
+
